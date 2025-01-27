@@ -1,0 +1,22 @@
+<%= link_to('Back to Homepage', {controller: 'books', action: 'index'}) %><br />
+
+<div class="books show">
+  <h2>Show book</h2>
+
+  <table summary="Book detail view">
+    <tr class="header">
+      <th style="text-align: left;">Title</th>
+      <th style="text-align: left;">Actions</th>
+    </tr>
+    
+    <tr>
+      <td><%= @book.title %></td>
+
+      <td class="actions">
+        <%= link_to("Edit", edit_book_path(@book), class: 'action edit') %>
+        <%= link_to("Delete", delete_book_path(@book), class: 'action delete') %>
+      </td>
+    </tr>
+  </table>
+
+</div>
