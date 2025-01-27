@@ -16,6 +16,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to(books_path, notice: 'Book was successfully created.')
     else
+      flash[:alert] = "There was an error creating the book."
       render('new')
     end
   end
