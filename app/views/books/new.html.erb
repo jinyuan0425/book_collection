@@ -3,14 +3,19 @@
 <div class="books new">
   <h2>Add a Book</h2>
 
-  <%= form_for(@book) do |f| %>
-    <% # url: books_path, method: 'post' %>
+  <!-- Flash Messages -->
+  <% flash.each do |key, message| %>
+    <div class="flash <%= key %>">
+      <p><%= message %></p>
+    </div>
+  <% end %>
 
+  <!-- Form for Adding a New Book -->
+  <%= form_for(@book) do |f| %>
     <%= render(partial: 'form', locals: {f: f}) %>
 
     <div class="form-buttons">
       <%= f.submit("Create book") %>
     </div>
-
   <% end %>
 </div>
