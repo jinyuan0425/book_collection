@@ -1,8 +1,9 @@
-class Book < ApplicationRecord
-    has_many :users, through: :user_books
-    has_many :user_books
+# frozen_string_literal: true
 
-    validates :title, :author, :published_date, presence: true
-    validates :price, presence: true, numericality: true
+class Book < ApplicationRecord
+  has_many :users, through: :user_books
+  has_many :user_books
+
+  validates :title, :author, :published_date, presence: true
+  validates :price, presence: true, numericality: true
 end
-  

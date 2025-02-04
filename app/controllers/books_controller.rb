@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BooksController < ApplicationController
   def index
     @books = Book.order(:title)
@@ -16,7 +18,7 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to(books_path, notice: 'Book was successfully created.')
     else
-      flash[:alert] = "There was an error creating the book."
+      flash[:alert] = 'There was an error creating the book.'
       render('new')
     end
   end
@@ -30,7 +32,7 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       redirect_to(book_path(@book), notice: 'Book was successfully updated.')
     else
-      flash[:alert] = "There was an error updating the book."
+      flash[:alert] = 'There was an error updating the book.'
       render('edit')
     end
   end

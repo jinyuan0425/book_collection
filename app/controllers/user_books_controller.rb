@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class UserBooksController < ApplicationController
-  before_action :set_user_book, only: %i[ show edit update destroy ]
+  before_action :set_user_book, only: %i[show edit update destroy]
 
   # GET /user_books or /user_books.json
   def index
@@ -7,8 +9,7 @@ class UserBooksController < ApplicationController
   end
 
   # GET /user_books/1 or /user_books/1.json
-  def show
-  end
+  def show; end
 
   # GET /user_books/new
   def new
@@ -16,8 +17,7 @@ class UserBooksController < ApplicationController
   end
 
   # GET /user_books/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /user_books or /user_books.json
   def create
@@ -25,7 +25,7 @@ class UserBooksController < ApplicationController
 
     respond_to do |format|
       if @user_book.save
-        format.html { redirect_to @user_book, notice: "User book was successfully created." }
+        format.html { redirect_to @user_book, notice: 'User book was successfully created.' }
         format.json { render :show, status: :created, location: @user_book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class UserBooksController < ApplicationController
   def update
     respond_to do |format|
       if @user_book.update(user_book_params)
-        format.html { redirect_to @user_book, notice: "User book was successfully updated." }
+        format.html { redirect_to @user_book, notice: 'User book was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +52,20 @@ class UserBooksController < ApplicationController
     @user_book.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_books_path, status: :see_other, notice: "User book was successfully destroyed." }
+      format.html { redirect_to user_books_path, status: :see_other, notice: 'User book was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user_book
-      @user_book = UserBook.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_book_params
-      params.require(:user_book).permit(:user_id, :book_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user_book
+    @user_book = UserBook.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_book_params
+    params.require(:user_book).permit(:user_id, :book_id)
+  end
 end
